@@ -6,7 +6,6 @@ const Profile = ({ showModal }) => {
     const identity = useIdentityContext();
     const isLoggedIn = identity && identity.isLoggedIn;
 
-    console.log(identity);
     const name = identity &&
         identity.user &&
         identity.user.user_metadata &&
