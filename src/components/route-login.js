@@ -1,9 +1,9 @@
 import React from 'react';
 
-const RouteLogin = () => (
+const RouteLogin = ({toggleModal}) => (
     <>
         <h1>Login or Sign Up</h1>
-        <button>Login</button>
+        <button onClick={toggleModal} >Login</button>
     </>
 )
 
