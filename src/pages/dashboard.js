@@ -10,6 +10,7 @@ import IndentifyModal from "react-netlify-identity-widget";
 
 
 import 'react-netlify-identity-widget/styles.css';
+import PrivateRoute from '../components/private-route';
 
 const Dashboard = ({location}) => {
 
@@ -21,15 +22,15 @@ const Dashboard = ({location}) => {
         }
     }, [location.pathname])
 
-    const toggleModal = () => setVisible(!isVisible);
+    const showModal = () => setVisible(true);
 
     return (
         <Layout>
             <Profile />
             <Router>
-                <RouteBase path="/dashboard/base" />
-                <RouteSecret path="/dashboard/secret" />
-                <RouteLogin path="/dashboard/login"  toggleModal={toggleModal} />
+                <PrivateRoute component={RouteBase} path="/dashboard/base" />
+                <PrivateRoute component={RouteSecret} path="/dashboard/secret" />
+                <RouteLogin path="/dashboard/login"  showModal={showModal} />
             </Router>
             <IndentifyModal showDialog={isVisible} onCloseDialog={() => setVisible(false)}/>
         </Layout>
